@@ -70,6 +70,8 @@
 			</div>
 			<div class="section-videobg">
 				<img class="cover-ie" src="<?php echo get_template_directory_uri() ?>/img/cover-ie.png" alt="cover">				
+				
+				
 				<video autoplay muted loop>
 					<source src="https://freedomdigitalcommunication.com/bg.mp4" type="video/mp4">
 				</video>
@@ -90,6 +92,7 @@
 				<div class="arrow">
 					<i class="fa fa-chevron-down" aria-hidden="true"></i>
 				</div>
+
 			</div>
 		<div class="section-videomobile hide-on-large-only center-align" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/mobilebg.jpg');">
 			<h2 class="title">ไม่มีฝันไหน สมควรเป็นแค่ฝัน</h2>
