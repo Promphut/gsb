@@ -1,0 +1,244 @@
+.syp-head {
+	height: 780px;
+	position: relative;
+	background: url('../img/showproduct_bg.jpg') #38373c;
+	background-position-x: right;
+	background-position-y: bottom;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	z-index: -0;
+}
+
+.syp-head > .arrow-left {
+	position: absolute;
+	top: 94px;
+	left: 41vw;
+	z-index: -1;
+}
+
+.syp-head > .arrow-line-left {
+	position: absolute;
+	top: calc(96px + 33px);
+	left: 39vw;
+	z-index: -1;
+	animation: fade-left 2s infinite;
+	overflow: hidden;
+}
+
+@keyframes fade-left {
+	0% {
+		width: 0px;
+	}
+	100% {
+		width: 150px;
+	}
+}
+
+.syp-head > .arrow-right {
+	position: absolute;
+	top: 211px;
+	right: -1vw;
+	transform: rotate(180deg);
+	z-index: -1;
+}
+
+.syp-head > .arrow-line-right {
+	position: absolute;
+	top: calc(215px + 33px);
+	right: -2.5vw;
+	transform: rotate(180deg);
+	z-index: -1;
+	animation: fade-right 2s infinite;
+	overflow: hidden;
+}
+
+@keyframes fade-right {
+	0% {
+		width: 0px;
+	}
+	100% {
+		width: 150px;
+	}
+}
+
+.syp-head > .syp-pink-bg {
+	position: absolute;
+	background: #de0a87;
+	height: 100vw;
+	width: 65vw;
+	transform: translateX(-10vw) translateY(-10vw) rotate(-23deg);
+}
+
+.syp-head > .container {
+	transform: translateX(0);
+}
+
+.syp-head > .container > .line {
+	height: 2px;
+	width: 80px;
+	background: #ffffff;
+	margin-top: 126px;
+}
+
+.syp-head > .container > h1 {
+	font-family: 'rsubold';
+	font-size: 56px;
+	color: #ffffff;
+	margin: 24px 0 16px;
+}
+
+.syp-head > .container > h2 {
+	font-family: 'rsuregular';
+	font-size: 24px;
+	color: #ffffff;
+}
+
+.syp-head > .container > .rocket {
+	margin-top: 56px;
+}
+
+.syp-head > .swiper-container {
+	height: 350px;
+	width: 60vw;
+	position: absolute;
+	right: -40px;
+	bottom: 158px;
+}
+
+.syp-head > .swiper-container > .swiper-wrapper > .swiper-slide {
+	height: 345px;
+	display: flex;
+	flex-direction: column;
+	background: #ffffff;
+	border: 1px solid #8e8e8e;
+	border-radius: 4px;
+	box-shadow: 2px 2px 6px 0px rgba(100, 100, 100, 0.3);
+}
+
+.syp-head > .swiper-container > .swiper-wrapper > .swiper-slide > img {
+	width: 100%;
+}
+
+.syp-head > .swiper-container > .swiper-wrapper > .swiper-slide > .desc {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-left: 16px;
+}
+
+.syp-head
+	> .swiper-container
+	> .swiper-wrapper
+	> .swiper-slide
+	> .desc
+	> .name {
+	font-family: 'rsubold';
+	font-size: 20px;
+}
+
+.syp-head
+	> .swiper-container
+	> .swiper-wrapper
+	> .swiper-slide
+	> .desc
+	> .brand {
+	font-family: 'rsuregular';
+	font-size: 16px;
+}
+
+.syp-head > .swiper-control {
+	position: absolute;
+	right: calc(60vw - 150px);
+	bottom: 100px;
+	width: 96px;
+	display: flex;
+	flex-direction: row;
+}
+
+.syp-head > .swiper-control > .lineWrapper {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.syp-head > .swiper-control > .lineWrapper > .vertical-line {
+	height: 24px;
+	width: 1px;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.syp-head > .swiper-control > .button-prev,
+.button-next {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+	.syp-head {
+		height: 100vh;
+	}
+
+	.syp-head > .arrow-left {
+		top: 222px;
+		left: 0vw;
+	}
+
+	.syp-head > .arrow-line-left {
+		top: calc(222px + 33px);
+		left: -30px;
+	}
+
+	.syp-head > .arrow-right {
+		display: none;
+	}
+
+	.syp-head > .arrow-line-right {
+		display: none;
+	}
+
+	.syp-head > .syp-pink-bg {
+		display: none;
+	}
+
+	.syp-head > .container > .line {
+		margin-top: 92px;
+	}
+
+	.syp-head > .container > h2 {
+		font-size: 24px;
+	}
+
+	.syp-head > .container > h1 {
+		font-size: 24px;
+	}
+
+	.syp-head > .container > h2 {
+		font-size: 18px;
+	}
+
+	.syp-head > .container > .rocket {
+		display: none;
+	}
+
+	.syp-head > .swiper-container {
+		height: 320px;
+		width: 140vw;
+		right: -55vw;
+		bottom: 88px;
+	}
+
+	.syp-head > .swiper-container > .swiper-wrapper > .swiper-slide {
+		height: 315px;
+	}
+
+	.syp-head > .swiper-control {
+		right: calc(90vw - 130px);
+		bottom: 41px;
+	}
+}

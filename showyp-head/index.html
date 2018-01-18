@@ -1,0 +1,131 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GSB</title>
+
+  <link rel="stylesheet" type="text/css" href="./css/begin.css">
+  <link rel="stylesheet" type="text/css" href="./css/body.css">
+  <link rel="stylesheet" type="text/css" href="./css/new.css">  
+  <link rel="stylesheet" type="text/css" href="./css/etc.css">
+  <link rel="stylesheet" type="text/css" href="./css/foot.css">
+  <link rel="stylesheet" type="text/css" href="./css/head.css">
+  <link rel="stylesheet" type="text/css" href="./css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/side.css">
+  <link rel="stylesheet" type="text/css" href="./css/wp-admin.css">
+  <link rel="stylesheet" type="text/css" href="./css/wp-editor-style.css">
+
+  <link rel="stylesheet" href="./css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/showyp-head.css">
+  <link rel="stylesheet" type="text/css" href="./css/swiper.min.css">
+</head>
+
+<body>
+  <div>
+    <div class="syp-head">
+      <div class="syp-pink-bg">
+      </div>
+
+      <div class="arrow-left">
+        <img src="./img/big-arrow.png" alt="arrow">
+      </div>
+      <div class="arrow-right">
+        <img src="./img/big-arrow.png" alt="arrow">
+      </div>
+      <div class="arrow-line-left">
+        <img src="./img/arrow-line.png" alt="arrow-line">
+      </div>
+      <div class="arrow-line-right">
+        <img src="./img/arrow-line.png" alt="arrow-line">
+      </div>
+
+
+      <div class="container">
+        <div class="line"></div>
+        <h1>Show Your Products</h1>
+        <h2>เพิ่มผลิตภัณฑ์ของคุณ
+          <br>ร่วมกับผลิตภัณฑ์ต่างๆเหล่านี้</h2>
+        <img class="rocket" src="./img/syp-rocket.png" alt="showyourproduct">
+      </div>
+
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./img/item-1.png" alt="item">
+            <div class="desc">
+              <div class="name">ชื่อผลิตภัณฑ์</div>
+              <div class="brand">ชื่อแบรนด์</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="./img/item-2.png" alt="item">
+            <div class="desc">
+              <div class="name">ชื่อผลิตภัณฑ์</div>
+              <div class="brand">ชื่อแบรนด์</div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="./img/item-3.png" alt="item">
+            <div class="desc">
+              <div class="name">ชื่อผลิตภัณฑ์</div>
+              <div class="brand">ชื่อแบรนด์</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-control">
+        <div class="button-prev">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </div>
+        <div class="lineWrapper">
+          <div class="vertical-line"> </div>
+        </div>
+        <div class="button-next">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./js/swiper.min.js"></script>
+
+  <script>
+    var slidesPerView = userAgentDetect() ? 2 : 4
+
+    $(document).ready(function () {
+      var mySwiper = new Swiper('.swiper-container', {
+        slidesPerView: slidesPerView,
+        spaceBetween: 30,
+        loop: true,
+        navigation: {
+          nextEl: '.button-prev',
+          prevEl: '.button-next',
+        },
+      })
+
+      $('.button-next').trigger('click');
+    });
+
+    function userAgentDetect() {
+      if (window.navigator.userAgent.match(/Mobile/i) ||
+        window.navigator.userAgent.match(/iPhone/i) ||
+        window.navigator.userAgent.match(/iPod/i) ||
+        window.navigator.userAgent.match(/IEMobile/i) ||
+        window.navigator.userAgent.match(/Windows Phone/i) ||
+        window.navigator.userAgent.match(/Android/i) ||
+        window.navigator.userAgent.match(/BlackBerry/i) ||
+        window.navigator.userAgent.match(/webOS/i)) {
+        return true
+      } else {
+        return false
+      }
+    }
+  </script>
+
+</body>
+
+</html>
