@@ -42,9 +42,17 @@ get_header();?>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="chk-cover result">
 	<h1 class="chk-cover-title result">ผลลัพธ์สุขภาพธุรกิจ</h1>
-	<div class="button result">
+	<div class="button result share">
 		<i class="fa fa-share-alt" aria-hidden="true"></i>
 		SHARE
+		<div class="dropdown-share">
+			<div class="dropdown-share-arrow-wrapper">
+				<div class="dropdown-share-arrow"></div>
+			</div>
+			<div class="dropdown-share-content">
+				<?php seed_social(); ?>
+			</div>
+		</div>
 	</div>
 </div>
 <div class="chk-block result">
@@ -68,7 +76,6 @@ get_header();?>
 			พิมพ์
 		</div>
 	</div>
-	<!-- <input type="text" value="" id="chk-url"> -->
 	<!--?php while ( have_posts() ) : the_post(); ? -->
 	
 	<!-- ?php get_template_part( 'template-parts/content', 'page' ); ? -->
@@ -188,13 +195,6 @@ get_header();?>
 </div>
 
 <script>
-	
-function Copy() {
-	var copyText = document.getElementById("chk-url");
-  copyText.select();
-  document.execCommand("Copy");
-}
-
 jQuery(document).ready(function($) {    
 	$(".site-header").addClass("hidden-desk");
 	$(".site-header-space").addClass("no-height");
@@ -253,11 +253,7 @@ jQuery(document).ready(function($) {
 		})
 	});
 
-	document.getElementById("chk-url").value = "tetete";//window.location.href;
-	$('.seed-social').find('.line').after('<div class="copy" onclick="Copy();"><a><i class="fa fa-paperclip"></i></a></div>');
-	// $('.seed-social').find('.copy').click(function() {
-	// 	window.clipboardData.setData("Text", location.href);
-	// })
+	$('.seed-social').find('.line').after('<div class="chk-copy"><a><i class="fa fa-paperclip"></i></a></div>');
 
 	$(".share").click(function() {
 		if ($('.dropdown-share').hasClass('show')) {
@@ -271,6 +267,11 @@ jQuery(document).ready(function($) {
 			$('.button.btn-grey.share').find('span').addClass('none');
 			$('.button.btn-grey.share').addClass('grey-bg');
 		}
+	});
+
+	$(window).scroll(function() {
+		var scrollTop = $(window).scrollTop();
+		$('.dropdown-share-content').css('top', 'calc('+scrollTop+'px + 100vh - 45px)');
 	});
 
 	$(".print").click(function() {

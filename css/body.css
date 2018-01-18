@@ -3438,7 +3438,7 @@ article.type-post.category-event {
 	margin: -200px auto 76px;
 } */
 :root .chk-block .recommend .material-icons {
-	visibility: hidden;
+	visibility: hidden\9;
 }
 .chk-block > #chk-url {
 	/* display: none; */
@@ -4513,6 +4513,7 @@ article.type-post.category-event {
 	max-height: 100%;
 	overflow: auto;
 	background: rgba(0, 0, 0, 0.7);
+	transition: .2s;
 }
 .cal-modal > .content {
 	min-height: 730px;
@@ -4542,12 +4543,12 @@ article.type-post.category-event {
 	margin-bottom: 0.4em;
 }
 .cal-modal > .content > .divide {
-	height: 1px;
+	height: 2px;
 	width: 100%;
 	background: #eaeaea;
 }
 .cal-modal > .content > .divide.header {
-	height: 1px;
+	height: 2px;
 	width: 100%;
 	background: #c6127c;
 }
@@ -6505,7 +6506,7 @@ p.um-notice.err {
 	border-radius: 50%;
 }
 
-.dropdown-share > .dropdown-share-content > .seed-social > div.copy > a {
+.dropdown-share > .dropdown-share-content > .seed-social > div.chk-copy > a {
 	background: #eaeaea;
 }
 
@@ -6513,11 +6514,56 @@ p.um-notice.err {
 	padding-top: 6px;
 }
 
-.dropdown-share > .dropdown-share-content > .seed-social > div.copy > a > i {
+.dropdown-share > .dropdown-share-content > .seed-social > div.chk-copy > a > i {
 	color: #ec068d;
 	font-size: 18px;
 }
 
 .dropdown-share > .dropdown-share-content > .seed-social > div span {
 	display: none;
+}
+
+@media (max-width: 767px) {
+	.dropdown-share {
+		position: fixed;
+		display: none;
+		height: 100%;
+		width: 100vh;
+		top: 0;
+		left: 0;
+		background: rgba(0,0,0,.7);
+	}
+
+	.dropdown-share > .dropdown-share-content {
+		position: fixed;
+		height: 50vh;
+		width: 100vw;
+		bottom: 0;
+		left: 0;
+		transition: .001s;
+	}
+
+	.dropdown-share > .dropdown-share-content > .seed-social {
+		justify-content: center;
+	}
+
+	.dropdown-share > .dropdown-share-content > .seed-social > div {
+		flex: 1;
+		height: 100%;
+		width: 100%;
+	}
+
+	.dropdown-share > .dropdown-share-content > .seed-social > div > a {
+		border-radius: 0%;
+		height: 100%;
+		width: 100%;
+		align-items: unset;
+	}
+	
+	.dropdown-share > .dropdown-share-content > .seed-social > div i {
+		height: 45px;
+		display: flex;
+		align-items: center;
+		padding-top: 0;
+	}
 }
