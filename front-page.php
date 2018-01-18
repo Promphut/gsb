@@ -71,15 +71,30 @@
 				</div>
 			</div>
 			<div class="section-videobg">
-				<img class="cover-ie" src="<?php echo get_template_directory_uri() ?>/img/cover-ie.png" alt="cover">
-				<?php masterslider(7); ?>
+				<img class="cover-ie" src="<?php echo get_template_directory_uri() ?>/img/cover-ie.png" alt="cover">				
+				
+				
+				<video autoplay muted loop>
+					<source src="https://freedomdigitalcommunication.com/bg.mp4" type="video/mp4">
+				</video>
+				<div class="topbar2"></div>
+				<div class="topbar"></div>
+				
+				<!-- ?php masterslider(7); ? -->
 				<!-- <div class="front-overlay"></div> -->
-				<h2 class="type-it"></h2>
-				<p class="type-it2"></p>
-				<div class="line"></div>
+				<div class='text-con'>
+					<h2 class="type-it"></h2>
+					<div class='line-box'>
+						<div class="line"></div>					
+					</div>
+					<!-- <p class="type-it2"></p> -->
+					<h3 class="subtitle">ออมสินช่วยเปลี่ยนความฝัน<br />ให้กลายเป็นความจริง</h3>
+					<a href="<?php echo site_url('register'); ?>" class="btn white pink-text">JOIN STARTUP CLUB</a>
+				</div>
 				<div class="arrow">
 					<i class="fa fa-chevron-down" aria-hidden="true"></i>
 				</div>
+
 			</div>
 		<div class="section-videomobile hide-on-large-only center-align" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/mobilebg.jpg');">
 			<h2 class="title">ไม่มีฝันไหน สมควรเป็นแค่ฝัน</h2>
