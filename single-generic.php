@@ -65,16 +65,16 @@ get_header(); ?>
 		});
 
 		var thumbnailHeight = $('.post-thumbnail').height();
-		$(".side-social").css('top', thumbnailHeight + 70 + 30);
+		if (thumbnailHeight) {
+			$(".side-social").css('top', thumbnailHeight + 70 + 30);
 
-		$(window).scroll(function() {
-			var scrollTop = $(window).scrollTop();
+			$(window).scroll(function() {
+				var scrollTop = $(window).scrollTop();
 
-			if (scrollTop > thumbnailHeight + 70 + 30 + 70) {
-				$(".side-social").css('top', scrollTop + 70);
-			} else if (scrollTop > thumbnailHeight + 70 + 30) {
-				$(".side-social").css('top', scrollTop);
-			}
-		});
+				if (scrollTop > thumbnailHeight + 30) {
+					$(".side-social").css('top', scrollTop + 70 + 30);
+				}
+			});
+		}
 	});
 </script>

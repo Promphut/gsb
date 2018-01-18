@@ -242,7 +242,6 @@ function seed_scripts() {
 	wp_enqueue_style( 'seed-swiper', get_template_directory_uri() . '/css/swiper.min.css' );
 	wp_enqueue_style( 'seed-body', get_template_directory_uri() . '/css/body.css' );
 
-
 	wp_enqueue_script( 'jquery' );
 	switch (SEED_FRAMEWORK) {
 		case 'bootstrap-3':

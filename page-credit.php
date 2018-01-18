@@ -163,6 +163,42 @@ get_header();?>
   </div>
 </div>
 <script>
+function isNumberKey(evt, id) {
+  try {
+    var charCode = (evt.which) ? evt.which : event.keyCode;
+
+    if (charCode == 46) {
+      var txt = document.getElementById(id).value;
+      if (!(txt.indexOf(".") > -1)) {
+
+        return true;
+      }
+    }
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+      return false;
+
+    return true;
+  } catch (w) {
+    alert(w);
+  }
+}
+
+function numberWithCommas(number) {
+  var parts = number.toString().split(".");
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return parts.join(".");
+}
+
+function addComma(number) {
+  number = removeComma(number);
+  if (isNaN(number)) return null
+  else return numberWithCommas(number);
+}
+
+function removeComma(number) {
+  return parseFloat(number.replace(/,/g, ''));
+}
+
 jQuery(document).ready(function($) {    
   $('select').material_select();
   var modal = document.getElementById('myModal');
@@ -193,54 +229,42 @@ jQuery(document).ready(function($) {
 
   $("input").each(function (index, element) {
     $(document).on("input", element, function () {
-      findResult()
+      $("#sellAvg").val(addComma($("#sellAvg").val()));
+      $("#sellCr").val(addComma($("#sellCr").val()));
+      $("#sellTrm").val(addComma($("#sellTrm").val()));
+      $("#stock").val(addComma($("#stock").val()));
+      $("#buyAvg").val(addComma($("#buyAvg").val()));
+      $("#buyCr").val(addComma($("#buyCr").val()));
+      $("#buyTrm").val(addComma($("#buyTrm").val()));
+      
+      findResult();
     })
   })
 
-  function isNumberKey(evt, id) {
-    try {
-      var charCode = (evt.which) ? evt.which : event.keyCode;
-
-      if (charCode == 46) {
-        var txt = document.getElementById(id).value;
-        if (!(txt.indexOf(".") > -1)) {
-
-          return true;
-        }
-      }
-      if (charCode > 31 && (charCode < 48 || charCode > 57))
-        return false;
-
-      return true;
-    } catch (w) {
-      alert(w);
-    }
-  }
-
+  $(window).scroll(function() {
+    var scrollTop = $(window).scrollTop();
+    $('.cal-modal').css('padding-top', scrollTop + 100);
+  });
+  
   function findResult() {
-    var sellAvg = $("#sellAvg").val();
-    var sellCr = $("#sellCr").val();
-    var sellTrm = $("#sellTrm").val();
+    var sellAvg = removeComma($("#sellAvg").val());
+    var sellCr = removeComma($("#sellCr").val());
+    var sellTrm = removeComma($("#sellTrm").val());
     var sell = sellAvg * sellCr * sellTrm * 0.01;
 
-    var stock = $("#stock").val();
+    var stock = removeComma($("#stock").val());
     var allStock = stock * sellAvg;
 
-    var buyAvg = $("#buyAvg").val();
-    var buyCr = $("#buyCr").val();
-    var buyTrm = $("#buyTrm").val();
+    var buyAvg = removeComma($("#buyAvg").val());
+    var buyCr = removeComma($("#buyCr").val());
+    var buyTrm = removeComma($("#buyTrm").val());
     var buy = buyAvg * buyCr * buyTrm * 0.01;
 
     var result = sell + allStock - buy;
-    result = numberWithCommas(result.toFixed(4))
+    if (isNaN(result)) result = 0
+    else result = numberWithCommas(result.toFixed(0))
 
     $(".cal-right").find(".result").text(result);
-  }
-
-  function numberWithCommas(number) {
-    var parts = number.toString().split(".");
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return parts.join(".");
   }
 });
 </script>

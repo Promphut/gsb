@@ -3,14 +3,12 @@
 * Template Name: Personal Page
 */
 get_header();?>
-<div class="chk-cover personal">
-	<h1 class="chk-cover-title space">บุคคลธรรมดา</h1>
-</div>
 <div class="chk-block">
+	<!-- <div class='back'>กลับ</div> -->
 	<?php while ( have_posts() ) : the_post(); ?>
-
+	
 	<?php get_template_part( 'template-parts/content', 'page' ); ?>
-
+	
 	<?php endwhile; // End of the loop. ?>
 	<!-- disabled -->
 </div>
@@ -19,17 +17,17 @@ get_header();?>
 		$(".site-header").addClass("hidden-desk");
 		$(".site-canvas").addClass("checkup-bg");
 		// $("#post-381").find(".entry-content").prepend('<a class="checkup-back" href="../checkup">กลับ</a>');
-
+		
 		var step = $(".gf_progressbar_title").text();
 		step = step.slice(4).trim();
 		$(".gf_progressbar_title").text(step);
 
 		$(document).on("keyup","input", function() {
 			$('input').keyup(function(event) {
-
+				
 					// skip for arrow keys
 					if(event.which >= 37 && event.which <= 40) return;
-
+				
 					// format number
 					$(this).val(function(index, value) {
 						return value
@@ -43,7 +41,32 @@ get_header();?>
 		$('.gform_next_button').addClass('disabled');
 		$('.gform_next_button').prop('disabled', true);
 
-		setInterval(function(){
+		// // $('.ginput_container_radio input').click(function(e){
+		// // 	$('.gform_next_button').removeClass('disabled');
+		// // 	$('.gform_next_button').prop('disabled', false);
+		// // 	console.log($('.gform_page'))
+		// // })
+
+		// // $('.gform_page div ul li input').click((e)=>{
+		// // 	console.log(e)
+		// // })
+
+		// $('.gfield_radio input').each(function(ind,ele){
+		// 	$(ele).bind('click', function(e) {
+		// 		// $('.gform_next_button').removeClass('disabled');
+		// 		// $('.gform_next_button').prop('disabled', false);
+		// 		test(e)
+		// 	});
+		// })
+
+		// $('.gform_next_button').each(function(ind,ele){
+		// 	// $(ele).bind('click', function() {
+		// 	// 	$('.gform_next_button').addClass('disabled');
+		// 	// 	$('.gform_next_button').prop('disabled', true);
+		// 	// });
+		// })
+
+		setInterval(function(){ 	
 			var error = $('.chk-block').find('article').find('.entry-content').find('.gform_wrapper').hasClass('gform_validation_error');
 			if(!error) $(".chk-block").find(".gform_previous_button").val("กลับ");
 
@@ -62,6 +85,13 @@ get_header();?>
 				}
 			});
 
+			$('.gform_previous_button').on('click',()=>{
+				setTimeout(() => {
+					$('.gform_next_button').removeClass('disabled');
+					$('.gform_next_button').prop('disabled', false);
+				}, 300);
+			})
+
 			$('.gfield_radio').find('li').each(function() {
 				$(this).click(function() {
 					$(this).parents('.gform_page').find('.gform_page_footer').find('.gform_next_button').removeClass('disabled');
@@ -71,7 +101,8 @@ get_header();?>
 			});
 
 			$(document).on("keyup", "input", function() {
-				if ($('.ginput_container_number').find('input').val() !== '') {
+				let val =  parseInt($('.ginput_container_number').find('input').val()) 
+				if (val && typeof val == "number") {
 					$(this).parents('.gform_page').find('.gform_page_footer').find('.gform_next_button').removeClass('disabled');
 					$(this).parents('.gform_page').find('.gform_page_footer').find('.gform_button').removeClass('disabled');
 					$(this).parents('.gform_page').find('.gform_page_footer').find('.gform_next_button').prop('disabled', false);
@@ -108,7 +139,7 @@ get_header();?>
 					$('.gform_next_button').css('opacity', '0');
 					$('.gform_button ').css('opacity', '0');
 
-					setTimeout(function(){
+					setTimeout(function(){ 
 						$(_this).parents('.chk-block').removeClass("slide-back");
 						$('.gform_previous_button').css('opacity', '1');
 						$('.gform_next_button').css('opacity', '1');
@@ -121,8 +152,8 @@ get_header();?>
 			}
 		}, 100);
 	});
-
-	function detectmob() {
+	
+	function detectmob() { 
 		if( navigator.userAgent.match(/Android/i)
 		|| navigator.userAgent.match(/webOS/i)
 		|| navigator.userAgent.match(/iPhone/i)
@@ -138,4 +169,3 @@ get_header();?>
 		}
 	}
 </script>
-<?php get_footer(); ?>
