@@ -2010,11 +2010,9 @@ h6 {
 @keyframes slide-left {
 	0% {
 		transform: skewX(0deg);
-		opacity: 0.5;
 	}
 	100% {
 		transform: skewX(-9deg);	
-		opacity: 1;
 	}
 }
 @keyframes slide-down {
