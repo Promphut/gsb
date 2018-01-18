@@ -1,4 +1,4 @@
-	<?php
+<?php
 /**
  * The template for displaying archive pages.
  *
@@ -49,79 +49,72 @@ get_header(); ?>
 				<?php if ( $i == 0 ) { ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class('col s12'); ?>>
 					<div class="row" style="margin-bottom:0;">
-						<div class="col m12s12">
-							<span class="point">•</span>
+						<div class="col m12 s12 countdown-text">
+							<span class="point">•</span> 
 							<h2 class="cd-title"><?php esc_html_e( 'Countdown', 'seed' ); ?></h2>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col m6 s12 center-align">
-							<div class="act-counter">
-							<div class="counter">
-								<div class="counterBox">
-									<div class="time" id="day">
-										<div class="box">
-											1
-										</div>
-										<div class="box">
-											0
-										</div>
+					<div class="act-counter">
+						<div class="counter">
+							<div class="counterBox">
+								<div class="time" id="day">
+									<div class="box">
+										1
 									</div>
-									<div class="unit">
-										days
+									<div class="box">
+										0
 									</div>
 								</div>
-								<div class="counterBox">
-									<div class="time" id="hour">
-										<div class="box">
-											1
-										</div>
-										<div class="box">
-											0
-										</div>
-									</div>
-									<div class="unit">
-										hours
-									</div>
-								</div>
-								<div class="counterBox">
-									<div class="time" id="min">
-										<div class="box">
-											1
-										</div>
-										<div class="box">
-											0
-										</div>
-									</div>
-									<div class="unit">
-										minutes
-									</div>
-								</div>
-								<div class="counterBox">
-									<div class="time" id="sec">
-										<div class="box">
-											1
-										</div>
-										<div class="box">
-											0
-										</div>
-									</div>
-									<div class="unit">
-										seconds
-									</div>
+								<div class="unit">
+									days
 								</div>
 							</div>
+							<div class="counterBox">
+								<div class="time" id="hour">
+									<div class="box">
+										1
+									</div>
+									<div class="box">
+										0
+									</div>
+								</div>
+								<div class="unit">
+									hours
+								</div>
 							</div>
-							<h2 class="entry-title"><?php echo $p->post_title ?></h2>
-							<a href="<?php echo $p->guid ?>" class="btn white-text pink hide-on-small-only" title="Permalink to <?php the_title_attribute(); ?>" rel="bookmark" ><?php esc_html_e( 'ดูรายละเอียด', 'seed' ); ?></a>
+							<div class="counterBox">
+								<div class="time" id="min">
+									<div class="box">
+										1
+									</div>
+									<div class="box">
+										0
+									</div>
+								</div>
+								<div class="unit">
+									minutes
+								</div>
+							</div>
+							<div class="counterBox">
+								<div class="time" id="sec">
+									<div class="box">
+										1
+									</div>
+									<div class="box">
+										0
+									</div>
+								</div>
+								<div class="unit">
+									seconds
+								</div>
+							</div>
 						</div>
-						<div class="col m6 s12">
-							<a href="<?php echo $p->guid ?>" title="Permalink to <?php the_title_attribute(); ?>" rel="bookmark">
-							<?php echo get_the_post_thumbnail( $p->ID, 'full' ); ?>
-							</a>
-							<div class="text-center _mobile">
-								<a href="<?php echo $p->guid ?>" class="btn white-text pink" title="Permalink to <?php the_title_attribute(); ?>" rel="bookmark" ><?php esc_html_e( 'ดูรายละเอียด', 'seed' ); ?></a>
-							</div>
+						<a class="act-img" href="<?php echo $p->guid ?>" title="Permalink to <?php the_title_attribute(); ?>" rel="bookmark">
+							<?php if(has_post_thumbnail()) { the_post_thumbnail('full');} else { echo '<img src="' . esc_url( get_template_directory_uri()) .'/img/thumbnail.jpg" alt="'. get_the_title() .'" />'; }?>
+						</a>
+						<div class="act-detail">
+							<h2 class="entry-title text"><?php echo $p->post_title ?></h2>
+							<a href="<?php echo $p->guid ?>" class="btn white-text pink act-btn" title="Permalink to <?php the_title_attribute(); ?>" rel="bookmark" ><?php esc_html_e( 'ดูรายละเอียด', 'seed' ); ?></a>
 						</div>
 					</div>
 				</article><!-- #post-## -->
@@ -201,13 +194,13 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-	<?php
+	<?php 
 	switch (SEED_BLOG_LAYOUT) {
 		case 'rightbar':
-		get_sidebar('right');
+		get_sidebar('right'); 
 		break;
 		case 'leftbar':
-		get_sidebar('left');
+		get_sidebar('left'); 
 		break;
 		case 'full-width':
 		break;
@@ -219,11 +212,11 @@ get_header(); ?>
 <img src="<?php echo get_template_directory_uri() ?>/img/line-chart-1.png" alt="" class="chart-1">
 <img src="<?php echo get_template_directory_uri() ?>/img/line-chart-1.png" alt="" class="chart-2">
 <?php get_footer(); ?>
-<!--
+<!-- 
 <script>
 console.log('test');
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function($) {  
 	$(window).on("load",function() {
 		$(window).scroll(function() {
 			var windowBottom = $(this).scrollTop() + $(this).innerHeight();

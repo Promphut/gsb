@@ -8,58 +8,42 @@ get_header();?>
 		<source src="<?php echo get_template_directory_uri(); ?>/img/register-bg.webm" type="video/webm">
 	</video>
 	<div class="container">
-		<div class="row">
-			<div class="col l7 m5 s12" >
-				<div class="block content">
-					<div class="line hide-on-small-only"></div>
-					<h2 class="title">Join SMEs Startup Club</h2>
+		<div class="block content">
+			<h2 class="title">Join SMEs Startup Club</h2>
+			<div class="line hide-on-small-only"></div>
+			<div class="line-right hide-on-small-only"></div>
+			<div class='row'>
+				<div class='col m5 s12'>
 					<ul>
 						<li>
 							<div class="icon_1"></div>ร่วมกิจกรรมพิเศษเฉพาะสำหรับสมาชิก</li>
 						<li>
 							<div class="icon_2"></div>นำเสนอผลิตภัณฑ์ของคุณฟรี! ไม่มีค่าใช้จ่าย</li>
+					</ul>
+				</div>
+				<div class='col m7 s12'>
+					<ul>
 						<li>
 							<div class="icon_3"></div>จองสิทธิ์อัตราดอกเบี้ยและโปรโมชั่นพิเศษ เมื่อขอสินเชื่อผ่านเว็ปไซต์</li>
 						<li>
 							<div class="icon_4"></div>รับข่าวสารการอบรม และสิทธ์ิได้รับคัดเลือกก่อนผู้ประกอบการทั่วไป</li>
-					</ul>
-					</div>
-				</div>
-			<div class="col l5 m7 s12">
-				<div class="row row-note">
-					<div class="col m12">
-						<h4 class="right-align note" style="position:relative;">* ธนาคารจะไม่อนุญาตให้มีการเปิดเผยข้อมูลส่วนตัวของท่านแก่บุคคลภายนอก</h4>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col s12 m12">
-						<div class="card card-register">
-							<div class="card-content">
-								<?php while ( have_posts() ) : the_post(); ?>
-								<?php get_template_part( 'template-parts/content', 'page' ); ?>
-								<?php endwhile; // End of the loop. ?>
-							</div>
-						</div>
-					</div>
+					</ul>					
 				</div>
 			</div>
+			<h4 class="right-align note" style="position:relative;">* ธนาคารจะไม่อนุญาตให้มีการเปิดเผยข้อมูลส่วนตัวของท่านแก่บุคคลภายนอก</h4>
 		</div>
+		<div class="card card-register">
+			<div class="card-content">
+				<?php while ( have_posts() ) : the_post(); ?>
+				<?php get_template_part( 'template-parts/content', 'page' ); ?>
+				<?php endwhile; // End of the loop. ?>
+			</div>
+		</div>
+		<div class="line-vertical hide-on-small-only"></div>																							
 	</div>
 </div>
 <script>
 jQuery(document).ready(function($) {
-	$("._um_row_2").hide();
-	$(".um-col-alt").hide();
-	$("#next").click(function(){
-		$("._um_row_2").show();
-		$(".um-col-alt").show();
-		$("._um_row_1").hide();
-	});
-	$("#back").click(function(){
-		$("._um_row_2").hide();
-		$(".um-col-alt").hide();
-		$("._um_row_1").show();
-	});
 
 	$('.um-field.um-field-user_password.um-field-password.um-field-type_password').each(function (index, element) {
 		if ($(element).attr('data-key') === 'user_password') {
@@ -67,7 +51,7 @@ jQuery(document).ready(function($) {
 		}
 	})
 
-	$('.um-field-block').find('#next').addClass('disabled');
+	// $('.um-field-block').find('#next').addClass('disabled');
 	$('.card-register').find('#um-submit-btn').addClass('disabled');
 
 	$(document).on("keyup","input", function() {

@@ -41,7 +41,7 @@ get_header();?>
 	}?>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="chk-cover result">
-	<h1 class="chk-cover-title space">ผลลัพธ์สุขภาพธุรกิจ</h1>
+	<h1 class="chk-cover-title result">ผลลัพธ์สุขภาพธุรกิจ</h1>
 	<div class="button result">
 		<i class="fa fa-share-alt" aria-hidden="true"></i>
 		SHARE
@@ -52,19 +52,28 @@ get_header();?>
 		<div class="label">
 			* ผลการเช็คสุขภาพธุรกิจ เป็นเพียงการประเมินเบื้องต้นไม่สามารถนำไปใช้ในการประกอบการพิจารณาสินเชื่อ
 		</div>
-		<div class="button btn-grey space">
+		<div class="button btn-grey share space">
 			<i class="fa fa-share-alt" aria-hidden="true"></i>
-			SHARE
+			<span>SHARE</span>
+			<div class="dropdown-share">
+				<div class="dropdown-share-arrow-wrapper">
+					<div class="dropdown-share-arrow"></div>
+				</div>
+				<div class="dropdown-share-content">
+					<?php seed_social(); ?>
+				</div>
+			</div>
 		</div>
-		<div class="button btn-grey">
+		<div class="button btn-grey print">
 			พิมพ์
 		</div>
 	</div>
-	<?php while ( have_posts() ) : the_post(); ?>
+	<!-- <input type="text" value="" id="chk-url"> -->
+	<!--?php while ( have_posts() ) : the_post(); ? -->
 	
-	<?php get_template_part( 'template-parts/content', 'page' ); ?>
+	<!-- ?php get_template_part( 'template-parts/content', 'page' ); ? -->
 	
-	<?php endwhile; // End of the loop. ?>
+	<!-- ?php endwhile; // End of the loop. ? -->
 	<div class="result">
 		<div class="image">
 			<img class="bg" src="<?php echo get_template_directory_uri() ?>/img/result.png" alt="result">
@@ -79,7 +88,7 @@ get_header();?>
 		</div> -->
 		<div class="happy">
 			<div class="happyImg">
-				<img src="<?php echo get_template_directory_uri() ?>/img/happy.png" alt="happy">
+				<img src="<?php echo get_template_directory_uri() ?>/img/happy-03.svg" alt="happy">
 			</div>
 			<div class="happyTextWrapper">
 				<div class="happyArrowWrapper">
@@ -138,9 +147,9 @@ get_header();?>
 								<h3><span>&bull;</span> ผลิตภัณฑ์อื่นๆ</h3>
 							</div>
 							<div class="more-link">
-								<a href="" class="btn-more">เงินฝาก</a>
-								<a href="" class="btn-more">ฉลากออมสิน</a>
-								<a href="" class="btn-more">บริการออนไลน์</a>
+								<a href="https://www.gsb.or.th/lp_Deposit.aspx" class="btn-more" target="_blank">เงินฝาก</a>
+								<a href="https://www.gsb.or.th/lotto.aspx" class="btn-more" target="_blank">สลากออมสิน</a>
+								<a href="https://www.gsb.or.th/GsbOnlineService.aspx" class="btn-more" target="_blank">บริการออนไลน์</a>
 							</div>
 						</div>
 					</div>
@@ -154,7 +163,7 @@ get_header();?>
 						<div class="wrapper">
 							ติดตามหลักสูตรอบรมของธนาคารเพื่อเพิ่มความแข็งแกร่งให้กับธุรกิจได้ที่
 							<div class="more-link">
-								<a href="" class="btn-more">ตารางกิจกรรม</a>
+								<a href="/category/event" class="btn-more">ตารางกิจกรรม</a>
 							</div>
 						</div>
 					</div>
@@ -168,7 +177,7 @@ get_header();?>
 						<div class="wrapper">
 							เตรียมธุรกิจของคุณให้พร้อมด้วยบทความและสาระความรู้ดีๆจากธนาคารออมสิน
 							<div class="more-link">
-								<a href="" class="btn-more">บทความ</a>
+								<a href="/category/knowledge" class="btn-more">บทความ</a>
 							</div>
 						</div>
 					</div>
@@ -179,64 +188,109 @@ get_header();?>
 </div>
 
 <script>
+	
+function Copy() {
+	var copyText = document.getElementById("chk-url");
+  copyText.select();
+  document.execCommand("Copy");
+}
+
 jQuery(document).ready(function($) {    
-		$(".site-header").addClass("hidden-desk");
-		$(".site-header-space").addClass("no-height");
-		$(".site-canvas").addClass("checkup-bg-result");
-		
-		<?php $perd = $per/20; ?>
-		var score = Math.floor(<?php echo $perd ?>);
-    console.log(score)
-    score = parseInt(score);
-    if (score === 1) {
-      $(".result").find(".arrow").addClass("level-1")
-      $(".result").find(".title").find("span").text("อาการน่าเป็นห่วง").css("color", "#EE6E23");
-    } else if (score === 2) {
-      $(".result").find(".arrow").addClass("level-2")
-      $(".result").find(".title").find("span").text("สุขภาพปกติ").css("color", "#FDBD11");
-    } else if (score === 3) {
-      $(".result").find(".arrow").addClass("level-3")
-      $(".result").find(".title").find("span").text("สุขภาพดี").css("color", "#CDDC36");
-    } else if (score === 4) {
-      $(".result").find(".arrow").addClass("level-4")
-      $(".result").find(".title").find("span").text("สุขภาพดีมาก").css("color", "#8CC44B");
-    } else if (score === 5) {
-      $(".result").find(".arrow").addClass("level-4")
-      $(".result").find(".title").find("span").text("สุขภาพดีมาก").css("color", "#8CC44B");
-    } else {
-      $(".result").find(".title").find("span").text("อาการโคม่า").css("color", "#E53833");
-    }
+	$(".site-header").addClass("hidden-desk");
+	$(".site-header-space").addClass("no-height");
+	$(".site-canvas").addClass("checkup-bg-result");
+	var happySrc = $('.happy').find('.happyImg').find('img').attr('src');
 
-		$(".boxs").find("li").each(function (index, element) {
-			$(element).find('.title').click(function () {
-				if ($(element).find(".material-icons").hasClass("rotate")) {
-					$(element).find(".material-icons").removeClass("rotate")
-				} else {
-					$(element).find(".material-icons").addClass("rotate")
-				}
+	<?php $perd = $per/20; ?>
+	var score = Math.floor(<?php echo $perd ?>);
 
-				if ($(element).find(".chk-rcm-content").hasClass("collapsed")) {
-					$(element).find(".chk-rcm-content").removeClass("collapsed")
-				} else {
-					$(element).find(".chk-rcm-content").addClass("collapsed")
-				}
-			})
-		});
+	score = parseInt(score);
+	if (score === 1) {
+		$(".result").find(".arrow").addClass("level-1");
+		$(".result").find(".title").find("span").text("อาการน่าเป็นห่วง").css("color", "#EE6E23");
+		happySrc = happySrc.replace("happy-03", "happy-04");
+		$('.happy').find('.happyText').html("“ธุรกิจของท่านค่อนข้างมีความพร้อม และมีความเป็นไปได้ในการขอสินเชื่อ หากได้รับคำปรึกษาและข้อมูลจากธนาคาร”");
+	} else if (score === 2) {
+		$(".result").find(".arrow").addClass("level-2");
+		$(".result").find(".title").find("span").text("สุขภาพปกติ").css("color", "#FDBD11");
+		$('.happy').find('.happyText').html("“ธุรกิจของท่านมีความพร้อมในการขอสนับสนุนสินเชื่อเพื่อพัฒนาขีดความสามารถของกิจการ”");
+	} else if (score === 3) {
+		$(".result").find(".arrow").addClass("level-3");
+		$(".result").find(".title").find("span").text("สุขภาพดี").css("color", "#CDDC36");
+		happySrc = happySrc.replace("happy-03", "happy-02");
+		$('.happy').find('.happyText').html("“ธุรกิจของท่านค่อนข้างมีความเข้มแข็ง การคิดหรือพัฒนา Product เพื่อให้เกิดความแตกต่าง จะทำให้ธุรกิจสามารถแข่งขันได้อย่างยั่งยืน”");
+	} else if (score === 4) {
+		$(".result").find(".arrow").addClass("level-4");
+		$(".result").find(".title").find("span").text("สุขภาพดีมาก").css("color", "#8CC44B");
+		happySrc = happySrc.replace("happy-03", "happy-01");
+		$('.happy').find('.happyText').html("“ธุรกิจของท่านมีศักยภาพ ธนาคารยินดีสนับสนุนเพื่อต่อยอดธุรกิจของท่าน”");
+	} else if (score === 5) {
+		$(".result").find(".arrow").addClass("level-4");
+		$(".result").find(".title").find("span").text("สุขภาพดีมาก").css("color", "#8CC44B");
+		happySrc = happySrc.replace("happy-03", "happy-01");
+		$('.happy').find('.happyText').html("“ธุรกิจของท่านมีศักยภาพ ธนาคารยินดีสนับสนุนเพื่อต่อยอดธุรกิจของท่าน”");
+	} else {
+		$(".result").find(".title").find("span").text("อาการโคม่า").css("color", "#E53833");
+		happySrc = happySrc.replace("happy-03", "happy-05");
+		$('.happy').find('.happyText').html("“ธุรกิจของท่านมีปัญหาบางประการ อาทิเช่น ด้านการตลาด ด้านการเงิน หรือด้านอื่นๆ เป็นต้น ทั้งนี้การขอสินเชื่อควรปรึกษาธนาคาร เพื่อลดความเสี่ยงที่อาจเกิดขึ้นในอนาคต”");
+	}
 
-    function getUrlParameter(sParam) {
-      var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-        sURLVariables = sPageURL.split('&'),
-        sParameterName,
-        i;
+	$('.happy').find('.happyImg').find('img').attr('src', happySrc);
 
-      for (i = 0; i < sURLVariables.length; i++) {
-        sParameterName = sURLVariables[i].split('=');
+	$(".boxs").find("li").each(function (index, element) {
+		$(element).find('.title').click(function () {
+			if ($(element).find(".material-icons").hasClass("rotate")) {
+				$(element).find(".material-icons").removeClass("rotate")
+			} else {
+				$(element).find(".material-icons").addClass("rotate")
+			}
 
-        if (sParameterName[0] === sParam) {
-          return sParameterName[1] === undefined ? true : sParameterName[1];
-        }
-      }
-    };
+			if ($(element).find(".chk-rcm-content").hasClass("collapsed")) {
+				$(element).find(".chk-rcm-content").removeClass("collapsed")
+			} else {
+				$(element).find(".chk-rcm-content").addClass("collapsed")
+			}
+		})
+	});
+
+	document.getElementById("chk-url").value = "tetete";//window.location.href;
+	$('.seed-social').find('.line').after('<div class="copy" onclick="Copy();"><a><i class="fa fa-paperclip"></i></a></div>');
+	// $('.seed-social').find('.copy').click(function() {
+	// 	window.clipboardData.setData("Text", location.href);
+	// })
+
+	$(".share").click(function() {
+		if ($('.dropdown-share').hasClass('show')) {
+			$('.dropdown-share').removeClass('show');
+			$('.button.btn-grey.share').find('i.fa-close').addClass('fa-share-alt').removeClass('fa-close');
+			$('.button.btn-grey.share').find('span').removeClass('none');
+			$('.button.btn-grey.share').removeClass('grey-bg');
+		} else {
+			$('.dropdown-share').addClass('show');
+			$('.button.btn-grey.share').find('i.fa-share-alt').removeClass('fa-share-alt').addClass('fa-close');
+			$('.button.btn-grey.share').find('span').addClass('none');
+			$('.button.btn-grey.share').addClass('grey-bg');
+		}
+	});
+
+	$(".print").click(function() {
+		window.print();
+	});
+
+	function getUrlParameter(sParam) {
+		var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+			sURLVariables = sPageURL.split('&'),
+			sParameterName,
+			i;
+
+		for (i = 0; i < sURLVariables.length; i++) {
+			sParameterName = sURLVariables[i].split('=');
+
+			if (sParameterName[0] === sParam) {
+				return sParameterName[1] === undefined ? true : sParameterName[1];
+			}
+		}
+	};
 });
 </script>
 <?php get_footer(); ?>
