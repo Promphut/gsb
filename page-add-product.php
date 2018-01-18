@@ -84,7 +84,8 @@ get_header();?>
 </div>
 <script>
   jQuery(document).ready(function ($) {
-    $('select').material_select();
+		$('select').material_select();
+		jQuery("#input_4_1").attr("maxlength", "40");
   });
 </script>
 <?php get_footer(); ?>

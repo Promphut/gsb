@@ -2,19 +2,19 @@
 
 <main id="main" class="site-main" role="main">
 
-	
-	<?php 
+
+	<?php
 	if (is_active_sidebar( 'banner' )) {
 		echo '<div class="site-banner">';
 		dynamic_sidebar( 'banner' );
 		echo '</div>';
 	} else {
-		if (get_header_image() != '') { 
+		if (get_header_image() != '') {
 			echo '<div class="site-banner"><img src="' . get_header_image() . '" alt="banner"></div>';
 		}
 	}
 	?>
-	
+
 
 	<?php if ( is_home() ) : /* Show Blog List */ ?>
 		<div class="home-blog-space"></div>
@@ -22,30 +22,30 @@
 			<div id="primary" class="content-area <?php echo '-'.SEED_BLOG_LAYOUT; ?>">
 				<main id="main" class="site-main" role="main">
 
-					<?php 
+					<?php
 					if ((int)SEED_BLOG_COLUMNS > 1) {
 						echo '<div class="seed-grid-'.SEED_BLOG_COLUMNS.'">';
 						while ( have_posts() ) : the_post();
 						get_template_part( 'template-parts/content','card-excerpt');
-						endwhile; 
+						endwhile;
 						echo '</div>';
 					} else {
 						while ( have_posts() ) : the_post();
 						get_template_part( 'template-parts/content');
-						endwhile; 
+						endwhile;
 					}
 					?>
 					<?php seed_posts_navigation(); ?>
-					
+
 				</main>
 			</div><!--primary-->
-			<?php 
+			<?php
 			switch (SEED_BLOG_LAYOUT) {
 				case 'rightbar':
-				get_sidebar('right'); 
+				get_sidebar('right');
 				break;
 				case 'leftbar':
-				get_sidebar('left'); 
+				get_sidebar('left');
 				break;
 				case 'full-width':
 				break;
@@ -66,27 +66,17 @@
 						</p>
 					</div>
 				</div>
-				<!-- <a href="#close-modal" rel="modal:close" class="close-modal btn-close">เข้าสู่หน้าแรก</a> -->
+				<div class="box-btn">
+					<a href="#close-modal" rel="modal:close" class="close-modal btn-close">เข้าสู่หน้าแรก</a>
+				</div>
 			</div>
 			<div class="section-videobg">
-				<img class="cover-ie" src="<?php echo get_template_directory_uri() ?>/img/cover-ie.png" alt="cover">				
-				<video autoplay muted loop>
-					<source src="https://freedomdigitalcommunication.com/bg.mp4" type="video/mp4">
-				</video>
-				<div class="topbar2"></div>
-				<div class="topbar"></div>
-				
-				<!-- ?php masterslider(7); ? -->
+				<img class="cover-ie" src="<?php echo get_template_directory_uri() ?>/img/cover-ie.png" alt="cover">
+				<?php masterslider(7); ?>
 				<!-- <div class="front-overlay"></div> -->
-				<div class='text-con'>
-					<h2 class="type-it"></h2>
-					<div class='line-box'>
-						<div class="line"></div>					
-					</div>
-					<!-- <p class="type-it2"></p> -->
-					<h3 class="subtitle">ออมสินช่วยเปลี่ยนความฝัน<br />ให้กลายเป็นความจริง</h3>
-					<a href="<?php echo site_url('register'); ?>" class="btn white pink-text">JOIN STARTUP CLUB</a>
-				</div>
+				<h2 class="type-it"></h2>
+				<p class="type-it2"></p>
+				<div class="line"></div>
 				<div class="arrow">
 					<i class="fa fa-chevron-down" aria-hidden="true"></i>
 				</div>
@@ -101,10 +91,10 @@
 				<div class="row">
 					<div class="col s12">
 						<div class="main-header">
-							<h3 class="title">มาเป็นส่วนหนึ่งใน <span class="section-com-1">ความสำเร็จ</span>	ของเรา</h3>
+							<h3 class="title">มาเป็นส่วนหนึ่งกับเราที่ <span class="section-com-1">ประสบความสำเร็จ</span></h3>
 							<h3 class="title">เหมือนกับ <span class="section-com-2">&nbsp;Startup&nbsp;</span> เหล่านี้</h3>
 						</div>
-					</div>	
+					</div>
 				</div>
 				<div class="row">
 					<div class="col m12 s12">
@@ -164,16 +154,16 @@
 				<div class="row">
 					<div class="col s12">
 						<div class="main-header-after">
-							<h3 class="title">มาเป็นส่วนหนึ่งใน <span class="section-com-1">ความสำเร็จ</span>	ของเรา</h3>
+							<h3 class="title">มาเป็นส่วนหนึ่งกับเราที่ <span class="section-com-1">ประสบความสำเร็จ</span></h3>
 						</div>
 						<div class="main-header-before">
 							<h3 class="title-2">เหมือนกับ <span class="section-com-2">&nbsp;Startup&nbsp;</span> เหล่านี้</h3>
 						</div>
-					</div>	
+					</div>
 				</div>
 				<div class="row center showcase-row">
 					<div class="col m3 s12">
-						<p class="tooltip">	
+						<p class="tooltip">
 							<span class="circleWrapper">
 								<img src="<?php echo get_template_directory_uri() ?>/img/com-1.png" alt="" class="circle">
 							</span>
@@ -422,7 +412,7 @@
 						<div id="join-parallax-2" class="parallax-container valign-wrapper join-parallax">
 							<div style="background-image: url('<?php the_field('join_picture_2'); ?>');" class="responsive-img join_picture_2 parallax" alt="join_picture_2"></div>
 						</div>
-						<span class="point">•</span> 
+						<span class="point">•</span>
 						<h2 class="title-activity"><?php esc_html_e( 'Incoming Activities', 'seed' ); ?></h2>
 						<div class="schedule z-depth-3">
 						<?php
@@ -673,7 +663,7 @@
 						<a href="<?php echo site_url('register'); ?>" class="btn waves-effect">Join SME Startup Club</a>
 					</div>
 				</div>
-			</div>		
+			</div>
 		</div> -->
 		<div class="section-banner">
 			<div class="container">
@@ -685,7 +675,7 @@
 							while ( have_rows('banner_repeater') ) : the_row();
 							?>
 							<div><img src="<?php the_sub_field('banner_picture') ?>" alt="Banner"></div>
-							<?php		
+							<?php
 							endwhile;
 							else :
 							endif;
@@ -697,18 +687,18 @@
 		</div>
 	<?php endif; ?>
 
-	<?php 
+	<?php
 /*
 <div class="home-section -news">
 	<div class="container">
 		<h2>Recent News</h2>
-		<?php 
+		<?php
 			$args = array(
 				// 'post_type' => 'post',
 				// 'category_name' => 'news',
 				'posts_per_page' => 4
 				);
-			$the_query = new WP_Query( $argse );
+			$the_query = new WP_Query( $args );
 		?>
 
 		<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
@@ -721,66 +711,56 @@
 */
 ?>
 <script>
-	jQuery(document).ready(function($) {   
+	jQuery(document).ready(function($) {
 		$(".modal").modal();
 		<?php if(!isset($_COOKIE["Modal"])) { ?>
-		<?php setcookie("Modal", True, time() + (86400 * 30), "/"); ?>
-		<?php } else { } ?>
+			<?php setcookie("Modal", True, time() + (86400 * 30), "/"); ?>
+	<?php } else { } ?>
+	var scroll_start = 0;
+	var startchange = $('.section-com');
+	var offset = startchange.offset();
+	$(document).scroll(function() {
+		$("#join-parallax").find(".parallax").css("background-position","0% " + (($(this).scrollTop() / 12) + 160) + "px");
+		$("#join-parallax-2").find(".parallax").css("background-position","50% " + (($(this).scrollTop() / 12) + 220) + "px");
+		$(".word-parallax").find(".parallax").css("background-position","50% " + (($(this).scrollTop() / 5.55) - 50) + "px");
+		 scroll_start = $(this).scrollTop();
+		 // if(scroll_start > offset.top) {
+			// 	 $('#masthead').css('background-color', '#EC068D');
+			// 	 $('.home .menu .current-menu-item a').css('color', '#ffffff');
+			// 	 $('.home .menu .current-menu-item').css('background', 'rgba(0,0,0,0.1)');
+     //
+			// 	 $(".home nav ul a").mouseover(function() {
+			// 		$(this).css("color", "#B0B0B0")
+			// 	});
+			// 	 $(".home nav ul a").mouseleave(function() {
+			// 		$(this).css("color", "#FFFFFF")
+			// 	});
+			// } else {
+			// 	 $('#masthead').css('background-color', 'transparent');
+			// 	 $('.home .menu .current-menu-item').css('background', 'none');
+			// 	 $('.home .menu .current-menu-item a').css('color', '#EC068D');
+			// }
+	});
 
-		$('.close-modal').html('เข้าสู่หน้าแรก');
-		$('.close-modal').addClass('enter-modal');
-		var closeButton = $('.close-modal').removeClass('close-modal');
-		$('.modal').after(closeButton);
+	$(".section-videobg").find(".arrow").click(function(){
+		$("html, body").animate({ scrollTop: $(window).height()}, 800);
+	});
 
-		var scroll_start = 0;
-		var startchange = $('.section-com');
-		var offset = startchange.offset();
+  new TypeIt('.type-it', {
+		strings: ['ไม่มีฝันไหน', 'สมควรเป็นแค่ฝัน'],
+		speed: 50,
+		startDelay: 900,
+		nextStringDelay: 0,
+		// cursor: false
+	});
 
-		$(document).scroll(function() { 
-			$("#join-parallax").find(".parallax").css("background-position","0% " + (($(this).scrollTop() / 12) + 160) + "px");
-			$("#join-parallax-2").find(".parallax").css("background-position","50% " + (($(this).scrollTop() / 12) + 220) + "px");
-			if (!detectmob()) {
-				$(".word-parallax").find(".parallax").css("background-position","50% " + (($(this).scrollTop() / 5.55) - 50) + "px");
-			}
-
-		 	scroll_start = $(this).scrollTop();
-		 	if(scroll_start > offset.top) {
-				$('#masthead').css('background-color', '#EC068D');
-				$('.home .menu .current-menu-item a').css('color', '#ffffff');
-				$('.home .menu .current-menu-item').css('background', 'rgba(0,0,0,0.1)');
-				 
-				$(".home nav ul a").mouseover(function() {
-					$(this).css("color", "#B0B0B0")
-				});
-				$(".home nav ul a").mouseleave(function() {
-					$(this).css("color", "#FFFFFF")
-				});
-			} else {
-				$('#masthead').css('background-color', 'transparent');
-				$('.home .menu .current-menu-item').css('background', 'none');
-				$('.home .menu .current-menu-item a').css('color', '#EC068D');
-			}
-		});
-
-		$(".section-videobg").find(".arrow").click(function(){
-			$("html, body").animate({ scrollTop: $(window).height()}, 800);
-		});
-
-		new TypeIt('.type-it', {
-			strings: ['ไม่มีฝันไหน', 'สมควรเป็นแค่ฝัน'],
-			speed: 50,
-			startDelay: 900,
-			nextStringDelay: 0,
-			// cursor: false
-		});
-	
   // new TypeIt('.type-it2', {
 	// 	strings: ['ที่ออมสินเราช่วยเปลี่ยนความคิด', 'ให้กลายเป็นความจริง'],
 	// 	speed: 50,
 	// 	startDelay: 5500,
 	// 	cursor: false
 	// });
-	
+
 	$(window).on("load",function() {
 
 		$(window).scroll(function() {
@@ -813,7 +793,7 @@
 					}, 800);
 				}
 			}
-			
+
 			if (updateBottom - 200 < windowBottom) {
 				$('.section-update').find('.container').find('.row').find('.m8').addClass('slide');
 				$('.section-update').find('.container').find('.row').find('.m4').addClass('slide');
@@ -821,7 +801,7 @@
 		}).scroll();
 	});
 
-	
+
 	$('.schedule ').find('.schedule-row').each(function(){
 		var date = $(this).find('.time').text();
 
@@ -833,7 +813,7 @@
 	})
 });
 
-function detectmob() { 
+function detectmob() {
 	if( navigator.userAgent.match(/Android/i)
 	|| navigator.userAgent.match(/webOS/i)
 	|| navigator.userAgent.match(/iPhone/i)
