@@ -195,6 +195,19 @@ get_header();?>
 </div>
 
 <script>
+	
+
+function copyToClipboard(element) {
+	jQuery(document).ready(function($) {    
+		var url = window.location.href;
+		var $temp = $("<input>");
+		$("body").append($temp);
+		$temp.val(url).select();
+		document.execCommand("copy");
+		$temp.remove();
+	})
+}
+
 jQuery(document).ready(function($) {    
 	$(".site-header").addClass("hidden-desk");
 	$(".site-header-space").addClass("no-height");
@@ -253,7 +266,7 @@ jQuery(document).ready(function($) {
 		})
 	});
 
-	$('.seed-social').find('.line').after('<div class="chk-copy"><a><i class="fa fa-paperclip"></i></a></div>');
+	$('.seed-social').find('.line').after('<div class="chk-copy" onclick="copyToClipboard(\'#p1\')"><a><i class="fa fa-paperclip"></i></a></div>');
 
 	$(".share").click(function() {
 		if ($('.dropdown-share').hasClass('show')) {
