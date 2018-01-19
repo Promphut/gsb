@@ -6347,7 +6347,7 @@ border-top-right-radius: 3px;
 	color: #ffffff;
 	cursor: pointer;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	.syp-head {
 		height: 100vh;
 	}
