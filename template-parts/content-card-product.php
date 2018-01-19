@@ -25,9 +25,9 @@
 	$company_website = get_field('company_website', 'user_'. $author_id );
 	$company_fb = get_field('company_fb', 'user_'. $author_id );
 	?>
-		<a  href="#<?php echo get_the_ID(); ?>" rel="modal:open">
-<article id="post-<?php the_ID(); ?>" class="item ">
 
+<article id="post-<?php the_ID(); ?>" class="item ">
+<a  href="#<?php echo get_the_ID(); ?>" rel="modal:open">
 		<?php if(has_post_thumbnail()) { the_post_thumbnail('full');} else { echo '<img src="' . esc_url( get_template_directory_uri()) .'/img/thumb.jpg" alt="'. get_the_title() .'" />'; }?>
 
 	<h3 class="title"><?php the_title(); ?></h3>
@@ -79,5 +79,5 @@
 	  		</div>
 	  	</div>
 	  </div>
+			</a>
 </article>
-	</a>
