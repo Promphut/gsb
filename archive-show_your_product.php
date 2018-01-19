@@ -155,8 +155,7 @@ get_header(); ?>
 		// $('.searchandfilter').find('ul').find('.sf-field-taxonomy-genre').find('h4').css('display', 'inline-block');
 		// $('.searchandfilter').find('ul').find('.sf-field-taxonomy-genre').find('h4').css('margin-right', '16px');
 
-			// var slidesPerView = userAgentDetect() ? 2 : 4
-			var slidesPerView = userAgentDetect() ? 2 : 3
+		var slidesPerView = userAgentDetect() ? 2 : 3
 
 		// $('.searchandfilter').children().css('display', 'flex');
 		// $('.searchandfilter').find('ul').find('.sf-field-taxonomy-genre').css('flex', '1');
