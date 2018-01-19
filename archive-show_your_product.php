@@ -138,7 +138,7 @@ get_header(); ?>
 		// $('.searchandfilter').find('ul').find('.sf-field-taxonomy-genre').find('h4').css('display', 'inline-block');
 		// $('.searchandfilter').find('ul').find('.sf-field-taxonomy-genre').find('h4').css('margin-right', '16px');
 
-			var slidesPerView = userAgentDetect() ? 2 : 4
+		var slidesPerView = userAgentDetect() ? 2 : 4
 
 		// $('.searchandfilter').children().css('display', 'flex');
 		// $('.searchandfilter').find('ul').find('.sf-field-taxonomy-genre').css('flex', '1');
@@ -160,7 +160,9 @@ get_header(); ?>
     });
 
     function userAgentDetect() {
-      if (window.navigator.userAgent.match(/Mobile/i) ||
+			if (window.innerWidth > 1024) {
+				return false
+			} else if (window.navigator.userAgent.match(/Mobile/i) ||
         window.navigator.userAgent.match(/iPhone/i) ||
         window.navigator.userAgent.match(/iPod/i) ||
         window.navigator.userAgent.match(/IEMobile/i) ||
@@ -168,9 +170,9 @@ get_header(); ?>
         window.navigator.userAgent.match(/Android/i) ||
         window.navigator.userAgent.match(/BlackBerry/i) ||
         window.navigator.userAgent.match(/webOS/i)) {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
     }
 	});
