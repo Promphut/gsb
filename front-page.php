@@ -743,7 +743,9 @@
 	$(document).scroll(function() {
 		$("#join-parallax").find(".parallax").css("background-position","0% " + (($(this).scrollTop() / 12) + 160) + "px");
 		$("#join-parallax-2").find(".parallax").css("background-position","50% " + (($(this).scrollTop() / 12) + 220) + "px");
-		$(".word-parallax").find(".parallax").css("background-position","50% " + (($(this).scrollTop() / 5.55) - 50) + "px");
+		if (!detectmob()) {
+			$(".word-parallax").find(".parallax").css("background-position","50% " + (($(this).scrollTop() / 5.55) - 50) + "px");
+		}
 		 scroll_start = $(this).scrollTop();
 		 // if(scroll_start > offset.top) {
 			// 	 $('#masthead').css('background-color', '#EC068D');
