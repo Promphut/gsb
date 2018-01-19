@@ -110,7 +110,14 @@ get_header();?>
 					<div class="col s12 m12">
 						<div class="card card-register card-border">
 							<div class="card-content">
-								<h3 class="card-title product"><?php esc_html_e( 'Show Your Products', 'seed' ); ?></h3>
+
+								<div class="cardd-title">
+									<h3 class="card-title product"><?php esc_html_e( 'Show Your Products', 'seed' ); ?></h3>
+									<a href="/profile" class="btn btn-all-my-product _desktop"><?php esc_html_e( 'ดูผลิตภัณฑ์ของคุณ', 'seed' ); ?></a>
+									<div class="chk-arrow _mobile">
+										<a href="/profile"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>	
+									</div>
+								</div>
 								<div class="row">
 									<div class="col m6 s12">
 										<p class="product-desc"><?php esc_html_e( 'เพิ่มผลิตภัณฑ์ของคุณ เพื่อแสดงในหน้า Show Your Products ร่วมกับผลิตภัณฑ์ต่างๆ เหล่านี้', 'seed' ); ?></p>

@@ -4,6 +4,12 @@
 */
 get_header();?>
 <style>
+select{
+	display: block!important;
+}
+.site-footer-space {
+    height: 90px!important;
+}
 	.um-field-label label {
 		font-size: 18px!important;
 	}
@@ -56,16 +62,16 @@ get_header();?>
 											<?php the_title(); ?>
 										</h2>
                     <?php while ( have_posts() ) : the_post(); ?>
-                    
+
                     <?php get_template_part( 'template-parts/content', 'page' ); ?>
-                    
+
                     <?php
                               // If comments are open or we have at least one comment, load up the comment template.
                               if ( comments_open() || get_comments_number() ) :
                                 comments_template();
                               endif;
                             ?>
-                    
+
                       <?php endwhile; // End of the loop. ?>
 									</div>
 								</div>
@@ -84,7 +90,7 @@ get_header();?>
 </div>
 <script>
   jQuery(document).ready(function ($) {
-		$('select').material_select();
+		// $('select').material_select();
 		jQuery("#input_4_1").attr("maxlength", "40");
   });
 </script>

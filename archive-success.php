@@ -23,7 +23,13 @@ get_header(); ?>
 <div class="container">
 	<div class="row">
 		<div class="col s12 m12">
-			<?php echo do_shortcode('[searchandfilter id="612"]') ?>
+			<div class="_desktop">
+				<?php echo do_shortcode('[searchandfilter id="612"]'); ?>
+			</div>
+
+			<div class="_mobile">
+					<?php echo do_shortcode('[searchandfilter id="797"]'); ?>
+			</div>
 		</div>
 	</div>
 </div>
