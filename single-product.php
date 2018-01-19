@@ -91,7 +91,7 @@ get_header(); ?>
 					<ul class="product-listing">
 							<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 							<li id="post-<?php the_ID(); ?>">
-									<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+									<i class="fa fa-arrow-right" aria-hidden="true"></i> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 							</li>
 							<?php endwhile;
 							wp_reset_postdata(); ?>
