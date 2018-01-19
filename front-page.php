@@ -66,9 +66,9 @@
 						</p>
 					</div>
 				</div>
-				<div class="box-btn">
+				<!-- <div class="box-btn">
 					<a href="#close-modal" rel="modal:close" class="close-modal btn-close">เข้าสู่หน้าแรก</a>
-				</div>
+				</div> -->
 			</div>
 			<div class="section-videobg">
 				<img class="cover-ie" src="<?php echo get_template_directory_uri() ?>/img/cover-ie.png" alt="cover">				
@@ -731,6 +731,12 @@
 		<?php if(!isset($_COOKIE["Modal"])) { ?>
 			<?php setcookie("Modal", True, time() + (86400 * 30), "/"); ?>
 	<?php } else { } ?>
+
+	$('.close-modal').html('เข้าสู่หน้าแรก');
+	$('.close-modal').addClass('enter-modal');
+	var closeButton = $('.close-modal').removeClass('close-modal');
+	$('.modal').after(closeButton);
+
 	var scroll_start = 0;
 	var startchange = $('.section-com');
 	var offset = startchange.offset();
