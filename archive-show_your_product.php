@@ -86,7 +86,20 @@ get_header(); ?>
 					?>
 				</header><!-- .page-header -->
 
-<?php echo do_shortcode('[searchandfilter id="657"]'); ?>
+<div class="_desktop">
+	<?php echo do_shortcode('[searchandfilter id="657"]'); ?>
+	<?php if (is_user_logged_in()): ?>
+		<a class="view-my-products" href="/profile"><?php esc_html_e( 'View My Products', 'seed' ); ?></a>
+	<?php endif; ?>
+</div>
+
+<div class="_mobile">
+	<?php if (is_user_logged_in()): ?>
+		<a class="view-my-products" href="/profile"><?php esc_html_e( 'View My Products', 'seed' ); ?></a>
+		<?php endif; ?>
+		<?php echo do_shortcode('[searchandfilter id="798"]'); ?>
+</div>
+
 	<div class="masonry">
 		<?php
 		if ((int)SEED_BLOG_COLUMNS > 1) {
@@ -128,17 +141,21 @@ get_header(); ?>
 	}
 	?>
 </div><!--container-->
+
 <?php get_footer(); ?>
 
 <script>
 	jQuery(document).ready(function ($) {
+
+
+
 		// $('select').css('display', 'block');
 		// $('.searchandfilter').children().css('display', 'flex');
 		// $('.searchandfilter').find('ul').find('.sf-field-taxonomy-genre').css('flex', '1');
 		// $('.searchandfilter').find('ul').find('.sf-field-taxonomy-genre').find('h4').css('display', 'inline-block');
 		// $('.searchandfilter').find('ul').find('.sf-field-taxonomy-genre').find('h4').css('margin-right', '16px');
 
-			var slidesPerView = userAgentDetect() ? 2 : 4
+			var slidesPerView = userAgentDetect() ? 2 : 3
 
 		// $('.searchandfilter').children().css('display', 'flex');
 		// $('.searchandfilter').find('ul').find('.sf-field-taxonomy-genre').css('flex', '1');
@@ -154,6 +171,32 @@ get_header(); ?>
           nextEl: '.button-next',
           prevEl: '.button-prev',
         },
+				breakpoints: {
+					// when window width is <= 320px
+					320: {
+						slidesPerView: 2,
+						spaceBetween: 10
+					},
+					// when window width is <= 480px
+					480: {
+						slidesPerView: 2,
+						spaceBetween: 20
+					},
+					// when window width is <= 640px
+					640: {
+						slidesPerView: 3,
+						spaceBetween: 30
+					},
+					768: {
+						slidesPerView: 4,
+						spaceBetween: 30
+					},
+					1024: {
+						slidesPerView: 2,
+						spaceBetween: 30
+					},
+
+				}
       })
 
       $('.button-next').trigger('click');

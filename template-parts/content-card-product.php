@@ -17,13 +17,15 @@
 	$author_id = get_the_author_meta('ID');
 	$company_name = get_field('company_name', 'user_'. $author_id );
 	$company_desc = get_field('company_desc', 'user_'. $author_id );
-	$company_logo = get_field('company_logo', 'user_'. $author_id );
+	$attachment_id = get_field('company_logo', 'user_'. $author_id );
+	$size = "thumbnail"; // (thumbnail, medium, large, full or custom size)
+	$company_logo = wp_get_attachment_image_src( $attachment_id, $size );
 	$company_address = get_field('company_address', 'user_'. $author_id );
 	$company_phone = get_field('company_phone', 'user_'. $author_id );
 	$company_website = get_field('company_website', 'user_'. $author_id );
 	$company_fb = get_field('company_fb', 'user_'. $author_id );
 	?>
-		<a href="#<?php echo get_the_ID(); ?>" rel="modal:open">
+		<a  href="#<?php echo get_the_ID(); ?>" rel="modal:open">
 <article id="post-<?php the_ID(); ?>" class="item ">
 
 		<?php if(has_post_thumbnail()) { the_post_thumbnail('full');} else { echo '<img src="' . esc_url( get_template_directory_uri()) .'/img/thumb.jpg" alt="'. get_the_title() .'" />'; }?>
@@ -34,7 +36,7 @@
 		<div class="brand-top">
 			<div class="row">
 				<div class="col m1 s12" style="padding-right:0;">
-					<img class="logo" src="<?php echo $company_logo; ?>" alt="Logo">
+					<img class="logo" src="<?php echo $company_logo[0]; ?>" alt="Logo">
 				</div>
 				<div class="col m10 s12">
 					<h3 class="brand-title"><?php echo $company_name; ?></h3>

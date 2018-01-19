@@ -52,12 +52,15 @@ get_header();?>
 					$user_id = get_current_user_id();
 					$company_name = get_field('company_name', 'user_'. $user_id );
 					$company_desc = get_field('company_desc', 'user_'. $user_id );
-					$company_logo = get_field('company_logo', 'user_'. $user_id );
+						$attachment_id = get_field('company_logo', 'user_'. $user_id );
+						$size = "thumbnail"; // (thumbnail, medium, large, full or custom size)
+						$company_logo = wp_get_attachment_image_src( $attachment_id, $size );
+
 					?>
 					<div class="col s2 m2">
 						<div class="center-align">
 							<?php if (isset($company_logo)) { ?>
-								<img class="profile-img" src="<?php echo $company_logo; ?>" alt="Logo">
+								<img class="profile-img" src="<?php echo $company_logo[0]; ?>" alt="Logo">
 							<?php } else { ?>
 								<img src="<?php echo get_template_directory_uri() ?>/img/profile-logo.png" alt="Logo">
 							<?php }
@@ -93,7 +96,7 @@ get_header();?>
 									</div>
 								</div>
 								<div class="row">
-									<?php 
+									<?php
 									 if ( is_user_logged_in() ): global $current_user; wp_get_current_user(); $author_query = array('posts_per_page' => '-1','author' => $current_user->ID, 'post_type' => 'show_your_product', 'post_status' => array( 'publish' )); $author_posts = new WP_Query($author_query); while($author_posts->have_posts()) : $author_posts->the_post();
 									?>
 									<?php $status = get_post_status($i); ?>
@@ -106,13 +109,13 @@ get_header();?>
 												</div>
 											</a>
 										</div>
-									<?php           
+									<?php
 									    endwhile;
 									else :
 									    echo "not logged in";
 									endif;
 									?>
-									<?php 
+									<?php
 									 if ( is_user_logged_in() ): global $current_user; wp_get_current_user(); $author_query = array('posts_per_page' => '-1','author' => $current_user->ID, 'post_type' => 'show_your_product', 'post_status' => array( 'pending' )); $author_posts = new WP_Query($author_query); while($author_posts->have_posts()) : $author_posts->the_post();
 									?>
 									<?php $status = get_post_status($i); ?>
@@ -121,13 +124,13 @@ get_header();?>
 												<span class="draft">กำลังคัดเลือก</span>
 											</div>
 										</div>
-									<?php           
+									<?php
 									    endwhile;
 									else :
 									    echo "not logged in";
 									endif;
 									?>
-									<?php 
+									<?php
 									 if ( is_user_logged_in() ): global $current_user; wp_get_current_user(); $author_query = array('posts_per_page' => '-1','author' => $current_user->ID, 'post_type' => 'show_your_product', 'post_status' => array( 'draft' )); $author_posts = new WP_Query($author_query); while($author_posts->have_posts()) : $author_posts->the_post();
 									?>
 									<?php $status = get_post_status($i); ?>
@@ -141,7 +144,7 @@ get_header();?>
 												</div>
 											</a>
 										</div>
-									<?php           
+									<?php
 									    endwhile;
 									else :
 									    echo "not logged in";

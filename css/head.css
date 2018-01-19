@@ -63,7 +63,9 @@ nav ul a {
 .sb-active .site-toggle{
     left: -60px;
 }
-
+.grid{
+	clear: both;
+}
 
 .site-toggle b {
 	font-weight: normal;
