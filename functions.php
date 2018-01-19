@@ -585,3 +585,35 @@ register_nav_menus( array(
 	'footer_menu_3' => 'ติดต่อเรา',
 	'video_menu' => 'เมนูวิดีโอ	',
 ) );
+
+
+
+
+
+
+
+add_shortcode( 'list-posts', 'rmcc_post_listing_shortcode1' );
+function rmcc_post_listing_shortcode1( $atts ) {
+    ob_start();
+
+    $query = new WP_Query( array(
+        'post_type' => 'product',
+        'cat' => 21,
+        'posts_per_page' => -1,
+        'order' => 'ASC',
+        'orderby' => 'title',
+
+    ) );
+    if ( $query->have_posts() ) { ?>
+        <ul class="clothes-listing">
+            <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+            <li id="post-<?php the_ID(); ?>">
+                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            </li>
+            <?php endwhile;
+            wp_reset_postdata(); ?>
+        </ul>
+    <?php $myvariable = ob_get_clean();
+    return $myvariable;
+    }
+}

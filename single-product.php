@@ -31,7 +31,7 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<div class="thumb">
 					<?php the_post_thumbnail('full'); ?>
-				</div>				
+				</div>
 				<?php the_content(); ?>
 
 				<ul class="collapsible" data-collapsible="expandable">
@@ -61,7 +61,7 @@ get_header(); ?>
 						<div class="collapsible-header"><i class="fa fa-arrow-right" aria-hidden="true"></i><?php the_sub_field('product_title'); ?></div>
 						<div class="collapsible-body"><?php the_sub_field('product_desc'); ?></div>
 					</li>
-				<?php 
+				<?php
 				endwhile;
 				else :
 				endif;
@@ -73,25 +73,40 @@ get_header(); ?>
 			</div>
 			</main><!-- #main -->
 		</div><!-- #primary -->
+
+		<div class="col m4 box-product-listing">
+			<h2>ผลิตภัณฑ์อื่น</h2>
+			<?php
+			$category = get_the_category();
+
+			$query = new WP_Query( array(
+					'post_type' => 'product',
+					'cat' => $category[0]->cat_ID,
+					'posts_per_page' => -1,
+					'order' => 'ASC',
+					'orderby' => 'title',
+
+			) );
+			if ( $query->have_posts() ) { ?>
+					<ul class="product-listing">
+							<?php while ( $query->have_posts() ) : $query->the_post(); ?>
+							<li id="post-<?php the_ID(); ?>">
+									<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+							</li>
+							<?php endwhile;
+							wp_reset_postdata(); ?>
+					</ul>
+
+		<?php	} ?>
+		</div>
+
+
 	</div>
 
-<?php 
-	switch (SEED_BLOG_LAYOUT) {
-		case 'rightbar':
-			get_sidebar('right'); 
-			break;
-		case 'leftbar':
-			get_sidebar('left'); 
-			break;
-		case 'full-width':
-			break;
-		default:
-			break;
-	}
-	?>
+
 </div><!--container-->
 <script>
-	jQuery(document).ready(function ($) {    
+	jQuery(document).ready(function ($) {
 	    $(".collapsible").find("li").each(function (index, element) {
       $(element).click(function () {
         if ($(element).find(".fa-arrow-right").hasClass("rotate")) {
@@ -110,4 +125,3 @@ get_header(); ?>
 	});
 </script>
 <?php get_footer(); ?>
-
